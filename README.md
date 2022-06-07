@@ -1,6 +1,6 @@
 # autonomous_landing_uav
 
-This work was developed by Isabel Castelo during her Master Thesis under direct supervision of Prof. Pedro Lima and Dr. Meysam Basiri. To read more about this work, click on the follwing [link](https://drive.google.com/file/d/17AfR2s2Ql5n2FO_m81a-wonHWeZszbup/view?usp=sharing "Thesis Link").
+This work was developed by Isabel Castelo during her Master Thesis under direct supervision of Prof. Pedro Lima and Meysam Basiri. To read more about this work, click on the follwing [link](https://drive.google.com/file/d/17AfR2s2Ql5n2FO_m81a-wonHWeZszbup/view?usp=sharing "Thesis Link").
 
 ## Hardware
 
