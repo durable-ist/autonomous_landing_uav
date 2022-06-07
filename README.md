@@ -15,6 +15,8 @@ This work was developed by Isabel Castelo during her Master Thesis under direct 
 * MAVROS
 * OpenCV
 * Fiducials package (https://github.com/UbiquityRobotics/fiducials.git)
+* hector_imu_attitude_to_tf package
+* realsense2_camera package
 
 NOTES: In the Fiducials package, one must include the **aruco_detect3.launch** file in the launch directory of the Fiducials package. This file can be found in this repository.
 
