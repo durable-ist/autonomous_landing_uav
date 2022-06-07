@@ -12,7 +12,7 @@ This work was developed by Isabel Castelo during her Master Thesis under direct 
 
 ## Dependencies
 
-* MAVROS
+* MAVROS package
 * OpenCV
 * Fiducials package (https://github.com/UbiquityRobotics/fiducials.git)
 * hector_imu_attitude_to_tf package
