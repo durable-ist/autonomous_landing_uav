@@ -65,6 +65,12 @@ $ python fsm.py
 NOTE: To exit this Smach, you must type `CTRL + Z` and then run `kill -9 [NUMBER OF THE PROCESS]`
 
 
+The smach will initialize on the state "WaitBeforeLanding". To move on to the landing sequence state, one must publish a message to the topic "/start_landing" as shown below
+```
+$ rostopic pub --once /start_landing std_msgs/String "data: ''"
+```
+
+
 ## Test Description
 
 The pilot should drive the UAV safely off the ground to a 5-8 meters height. Once the UAV is stable in this position, the pilot can switch the flight mode to GUIDED. This step will allow the execution of the state machine and thus initialize the landing sequence. 
