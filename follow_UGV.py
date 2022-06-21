@@ -50,16 +50,15 @@ class Publisher(object):
 
     def start(self):
 
-        while( not self.check_landing()):
+        while( not self.check_landing() and not rospy.is_shutdown()):
 
             if(self.firstObs == True and self.current_state.mode == "GUIDED") : 
                 #print("Mode is: ", self.current_state.mode)
                 target_angles = self.pid.target_pose(self.obs, self.hasObs) 
                 print("Target angles: ", target_angles)
                 self.vel(target_angles)
-                self.prev_state = self.current_state
-                self.rate.sleep()
-            
+                self.prev_state = self.current_state                
+
             if (self.prev_state.mode != self.current_state.mode):
                 # if flight mode changed, re initialize PID params
                 print("PID Re_initialized")
@@ -68,7 +67,8 @@ class Publisher(object):
                 self.pid.error_i = [0.0, 0.0, 0.0, 0.0]
                 self.pid.pid_distance = [0, 0, 0]
                 self.prev_state = self.current_state
-            
+
+            self.rate.sleep()            
         
         return 'landed'
     
