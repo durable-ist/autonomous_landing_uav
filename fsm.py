@@ -16,6 +16,7 @@ from smach import CBState
 import actionlib
 # Import other classes
 from follow_UGV import Publisher
+from wait_for_msg import WaitForMsg
 
 ##========================================================================
 ## Global Variables
@@ -90,6 +91,7 @@ def main():
     sm = smach.StateMachine(outcomes=['finished', 'aborted', 'preempted'])
     #Open the container
     with sm:
+        smach.StateMachine.add('WaitBeforeLanding', WaitForMsg(), transitions={'success': 'WaitAtHome'})
 
         smach.StateMachine.add('WaitAtHome', smach_ros.MonitorState('/fiducial_transforms', FiducialTransformArray, WaitAtHome), 
                                     transitions={'invalid':'Landing_Con', 'valid':'WaitAtHome', 'preempted':'WaitAtHome'})
