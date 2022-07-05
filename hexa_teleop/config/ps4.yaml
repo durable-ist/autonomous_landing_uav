@@ -6,7 +6,7 @@ joy_node:
   coalesce_interval: 0.01
   
 teleop:
-  hexa:
+  default:
     type: topic
     message_type: geometry_msgs/Twist
     topic_name: cmd_vel
@@ -28,3 +28,21 @@ teleop:
         axis: 0
         target: angular.z
         scale: 0.5
+  teleoperation:
+    type: topic
+    message_type: std_msgs/Int8
+    topic_name: mode
+    deadman_buttons: [4]
+    message_value:
+      -
+        target: data
+        value: 0
+  autonomous:
+    type: topic
+    message_type: std_msgs/Int8
+    topic_name: mode
+    deadman_buttons: [5]
+    message_value:
+      -
+        target: data
+        value: 1

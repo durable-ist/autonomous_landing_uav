@@ -1,9 +1,10 @@
 <launch>
 <!-- export JOYSTICK_MODEL=ps4 -->
 <!-- export JOYSTICK_MODEL=f710 -->
-  <arg name="model" value="$(optenv JOYSTICK_MODEL f710)" />
+  <arg name="model" value="$(optenv JOYSTICK_MODEL ps4)" />
   <arg name="joystick_model" default="$(arg model)" />
   <arg name="cmd_vel" default="mavros/setpoint_velocity/cmd_vel_unstamped" />
+  <arg name="mode" default="uav_mode" />
   <arg name="teleop_config" default="$(find hexa_teleop)/config/$(arg joystick_model).yaml" />
 
   <node pkg="joy" type="joy_node" name="joy_node">
@@ -12,6 +13,7 @@
   <rosparam file="$(arg teleop_config)" command="load" />
   <node pkg="joy_teleop" type="joy_teleop.py" name="joy_teleop">
     <remap from="cmd_vel" to="$(arg cmd_vel)" />
+    <remap from="mode" to="$(arg mode)" />
   </node>
 
 </launch>
